@@ -16,7 +16,7 @@ const projects: Project[] = [
   {
     id: 1,
     title: "Remove Background",
-    description: "An AI-driven platform that decodes cosmetic formulations to predict skin compatibility using machine learning models.",
+    description: "Secara teknis, AI pada website tersebut melakukan Image Segmentation. Ia membagi piksel foto ke dalam dua kategori: Foreground (depan) dan Background (belakang). AI akan mempertahankan piksel yang dianggap sebagai objek penting dan membuang sisanya dengan tingkat kehalusan yang terus meningkat seiring perkembangan teknologi.",
     tech: ["Typescript", "Next.js", "react"],
     image: "foto-RemoveBackground.png",
     demoUrl: "https://remove-background-pearl.vercel.app/",
@@ -76,8 +76,8 @@ export default function Projects() {
             </div>
             {/* Navigation Button */}
             <div className="mt-auto pt-4 border-t border-outline-variant/30">
-              <Link 
-                href={project.demoUrl || "#"} 
+              <Link
+                href={project.demoUrl || "#"}
                 target={project.demoUrl && project.demoUrl !== "#" ? "_blank" : undefined}
                 className="inline-flex items-center justify-center w-full px-4 py-2 bg-primary/10 text-primary font-bold rounded hover:bg-primary hover:text-on-primary transition-colors text-sm"
               >
