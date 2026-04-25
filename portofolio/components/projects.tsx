@@ -18,7 +18,7 @@ const projects: Project[] = [
     title: "Remove Background",
     description: "Secara teknis, AI pada website tersebut melakukan Image Segmentation. Ia membagi piksel foto ke dalam dua kategori: Foreground (depan) dan Background (belakang). AI akan mempertahankan piksel yang dianggap sebagai objek penting dan membuang sisanya dengan tingkat kehalusan yang terus meningkat seiring perkembangan teknologi.",
     tech: ["Typescript", "Next.js", "react"],
-    image: "foto-RemoveBackground.png",
+    image: "remove.png",
     demoUrl: "https://remove-background-pearl.vercel.app/",
     buttonText: "Visit Site"
   },
@@ -33,11 +33,11 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Omni-Channel CRM",
-    description: "A robust management system for logistics companies featuring real-time fleet GPS tracking and route optimization.",
-    tech: ["CodeIgniter 4", "Vue.js", "Redis"],
-    image: "file.svg",
-    demoUrl: "#",
+    title: "Website Apotik",
+    description: "Apotik Digital adalah platform Web Service yang dirancang untuk menyederhanakan manajemen inventaris obat dan mempermudah akses pelanggan dalam bertransaksi secara daring. Project ini mengintegrasikan keamanan data tingkat tinggi dengan antarmuka yang ramah pengguna.",
+    tech: ["Next.js", "prisma orm", "tailwind css", "typescript"],
+    image: "apotik.png",
+    demoUrl: "https://apotik-ten.vercel.app/",
     buttonText: "Visit Site"
   }
 ];

@@ -22,7 +22,7 @@ export default function Home() {
             <a className="text-slate-600 font-medium transition-colors hover:text-blue-600 font-space-grotesk tracking-tight" href="#contact">Contact</a>
           </div>
           <button className="bg-primary text-on-primary px-5 py-2 rounded-md font-bold transition-all hover:opacity-90 active:scale-95 shadow-lg shadow-primary/20">
-            Hire Me
+            Hubungi Saya
           </button>
         </div>
       </nav>
@@ -44,10 +44,10 @@ export default function Home() {
             © 2026 Arif. Designed with Atmospheric Precision.
           </div>
           <div className="flex gap-6">
-            <a className="text-slate-500 hover:text-blue-600 font-medium transition-transform hover:-translate-y-1" href="#">LinkedIn</a>
-            <a className="text-slate-500 hover:text-blue-600 font-medium transition-transform hover:-translate-y-1" href="#">GitHub</a>
-            <a className="text-slate-500 hover:text-blue-600 font-medium transition-transform hover:-translate-y-1" href="#">Twitter</a>
             <a className="text-slate-500 hover:text-blue-600 font-medium transition-transform hover:-translate-y-1" href="#">Email</a>
+            <a className="text-slate-500 hover:text-blue-600 font-medium transition-transform hover:-translate-y-1" href="#">LinkedIn</a>
+            <a className="text-slate-500 hover:text-blue-600 font-medium transition-transform hover:-translate-y-1" href="#">Instagram</a>
+            <a className="text-slate-500 hover:text-blue-600 font-medium transition-transform hover:-translate-y-1" href="#">GitHub</a>
           </div>
         </div>
       </footer>
