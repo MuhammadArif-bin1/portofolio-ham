@@ -1,3 +1,4 @@
+// Test git detection
 import Link from 'next/link';
 
 interface Project {
