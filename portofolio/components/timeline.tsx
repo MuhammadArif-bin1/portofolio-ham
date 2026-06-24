@@ -1,6 +1,6 @@
 export default function Timeline() {
   return (
-    <section className="bg-surface-container-low py-24" id="timeline">
+    <section className="relative z-10 bg-transparent py-24" id="timeline">
       <div className="max-w-4xl mx-auto px-6">
         <div className="mb-16">
           <h2 className="text-4xl font-bold text-on-surface mb-3 tracking-tight">Garis Waktu Pencapaian</h2>
@@ -13,7 +13,7 @@ export default function Timeline() {
           {/* Milestone 1 */}
           <div className="relative w-full mb-16">
             <div className="w-full md:w-[45%] pl-12 md:pl-0">
-              <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-lg text-left hover:shadow-xl transition-all">
+              <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-lg text-left hover:shadow-xl transition-all">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-2xl">📡</span>
                   <span className="text-primary text-sm font-bold">2026</span>
@@ -28,13 +28,13 @@ export default function Timeline() {
               </div>
             </div>
             {/* Node */}
-            <div className="absolute left-[17px] md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary z-10 shadow-[0_0_0_4px_rgba(33,81,218,0.2)]"></div>
+            <div className="absolute left-[17px] md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary z-10 shadow-[0_0_0_4px_rgba(0,255,210,0.2)]"></div>
           </div>
 
           {/* Milestone 2 */}
           <div className="relative w-full mb-16">
             <div className="w-full md:w-[45%] pl-12 md:pl-0 md:ml-auto">
-              <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-lg text-left hover:shadow-xl transition-all">
+              <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-lg text-left hover:shadow-xl transition-all">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-2xl">🐍</span>
                   <span className="text-primary text-sm font-bold">2023</span>
@@ -49,13 +49,13 @@ export default function Timeline() {
               </div>
             </div>
             {/* Node */}
-            <div className="absolute left-[17px] md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary z-10 shadow-[0_0_0_4px_rgba(33,81,218,0.2)]"></div>
+            <div className="absolute left-[17px] md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary z-10 shadow-[0_0_0_4px_rgba(0,255,210,0.2)]"></div>
           </div>
 
           {/* Milestone 3 */}
           <div className="relative w-full mb-16">
             <div className="w-full md:w-[45%] pl-12 md:pl-0">
-              <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-lg text-left hover:shadow-xl transition-all">
+              <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-lg text-left hover:shadow-xl transition-all">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-2xl">🎨</span>
                   <span className="text-primary text-sm font-bold">2022</span>
@@ -70,13 +70,13 @@ export default function Timeline() {
               </div>
             </div>
             {/* Node */}
-            <div className="absolute left-[17px] md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary z-10 shadow-[0_0_0_4px_rgba(33,81,218,0.2)]"></div>
+            <div className="absolute left-[17px] md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary z-10 shadow-[0_0_0_4px_rgba(0,255,210,0.2)]"></div>
           </div>
 
           {/* Milestone 4 */}
           <div className="relative w-full mb-16">
             <div className="w-full md:w-[45%] pl-12 md:pl-0 md:ml-auto">
-              <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-lg text-left hover:shadow-xl transition-all">
+              <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-lg text-left hover:shadow-xl transition-all">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-2xl">✨</span>
                   <span className="text-primary text-sm font-bold">2025</span>
@@ -91,13 +91,13 @@ export default function Timeline() {
               </div>
             </div>
             {/* Node */}
-            <div className="absolute left-[17px] md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary z-10 shadow-[0_0_0_4px_rgba(33,81,218,0.2)]"></div>
+            <div className="absolute left-[17px] md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary z-10 shadow-[0_0_0_4px_rgba(0,255,210,0.2)]"></div>
           </div>
 
           {/* Milestone 5 */}
           <div className="relative w-full mb-16">
             <div className="w-full md:w-[45%] pl-12 md:pl-0">
-              <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-lg text-left hover:shadow-xl transition-all">
+              <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-lg text-left hover:shadow-xl transition-all">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-2xl">🚀</span>
                   <span className="text-primary text-sm font-bold">2025</span>
@@ -112,7 +112,7 @@ export default function Timeline() {
               </div>
             </div>
             {/* Node */}
-            <div className="absolute left-[17px] md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary z-10 shadow-[0_0_0_4px_rgba(33,81,218,0.2)]"></div>
+            <div className="absolute left-[17px] md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary z-10 shadow-[0_0_0_4px_rgba(0,255,210,0.2)]"></div>
           </div>
 
         </div>

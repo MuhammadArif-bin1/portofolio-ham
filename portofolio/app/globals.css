@@ -1,64 +1,42 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-surface: #f8f9ff;
-  --color-on-primary: #f8f7ff;
-  --color-tertiary-fixed: #dae2fd;
-  --color-tertiary-container: #dae2fd;
-  --color-surface-tint: #2151da;
-  --color-primary-dim: #0543ce;
-  --color-surface-container-highest: #d2e4ff;
-  --color-surface-variant: #d2e4ff;
-  --color-on-error: #fff7f7;
-  --color-outline-variant: #81b5f6;
-  --color-on-secondary: #f8f8ff;
-  --color-primary-fixed: #dce1ff;
-  --color-primary-fixed-dim: #cad2ff;
-  --color-inverse-on-surface: #8e9eb7;
-  --color-surface-container: #e5eeff;
-  --color-primary: #2151da;
-  --color-secondary-container: #d5e3fc;
-  --color-on-secondary-fixed-variant: #4e5c71;
-  --color-on-secondary-container: #455367;
-  --color-tertiary-dim: #4b5369;
-  --color-outline: #477dbb;
-  --color-on-tertiary-container: #4a5167;
-  --color-background: #f8f9ff;
-  --color-error: #9e3f4e;
-  --color-surface-dim: #c4dcff;
-  --color-on-primary-container: #0242ce;
-  --color-tertiary: #575f75;
-  --color-on-tertiary-fixed: #373f54;
-  --color-on-tertiary-fixed-variant: #535b71;
-  --color-secondary-fixed: #d5e3fc;
-  --color-on-background: #00345e;
-  --color-on-primary-fixed: #0032a4;
-  --color-on-surface: #00345e;
-  --color-error-container: #ff8b9a;
-  --color-secondary-dim: #465468;
-  --color-on-error-container: #782232;
-  --color-on-tertiary: #f9f8ff;
-  --color-secondary: #526074;
-  --color-tertiary-fixed-dim: #ccd4ee;
-  --color-primary-container: #dce1ff;
-  --color-on-secondary-fixed: #324053;
-  --color-surface-bright: #f8f9ff;
-  --color-on-primary-fixed-variant: #1c4dd7;
-  --color-surface-container-high: #dce9ff;
-  --color-surface-container-lowest: #ffffff;
-  --color-error-dim: #4f0116;
-  --color-inverse-surface: #000f21;
-  --color-secondary-fixed-dim: #c7d5ed;
-  --color-surface-container-low: #eff4ff;
-  --color-on-surface-variant: #26619d;
-  --color-inverse-primary: #6989ff;
+  --color-surface: #020813;
+  --color-background: #020813;
+  --color-on-surface: #f8fafc;
+  --color-on-background: #f8fafc;
+  --color-on-surface-variant: #94a3b8;
+  
+  --color-surface-container-lowest: #050b16;
+  --color-surface-container-low: #070e1c;
+  --color-surface-container: #0b1528;
+  --color-surface-container-high: #111e36;
+  --color-surface-container-highest: #1a2a47;
+  
+  --color-primary: #00ffd2;
+  --color-on-primary: #020813;
+  --color-primary-container: #032d26;
+  --color-on-primary-container: #00ffd2;
+  
+  --color-secondary: #00b8ff;
+  --color-on-secondary: #020813;
+  --color-secondary-container: #072a3b;
+  --color-on-secondary-container: #00b8ff;
 
+  --color-tertiary: #a78bfa;
+  --color-on-tertiary: #020813;
+  --color-tertiary-container: #2e1065;
+  --color-on-tertiary-container: #c084fc;
+  
+  --color-outline: rgba(0, 255, 210, 0.25);
+  --color-outline-variant: rgba(0, 255, 210, 0.12);
+  --color-error: #ef4444;
+  --color-on-error: #f8fafc;
+  
   --font-headline: var(--font-space-grotesk);
   --font-body: var(--font-inter);
   --font-label: var(--font-inter);
   --font-space-grotesk: var(--font-space-grotesk);
-
-  /* Add utility classes for material icons if needed, though they aren't tailwind standard */
 }
 
 body {

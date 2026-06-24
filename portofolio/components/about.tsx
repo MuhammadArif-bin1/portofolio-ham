@@ -1,67 +1,29 @@
 export default function About() {
   return (
-    <section className="relative w-full min-h-screen bg-surface-container-low text-on-surface py-24 px-6 overflow-hidden" id="about">
+    <section className="relative w-full bg-transparent text-on-surface py-20 px-6 overflow-hidden" id="about">
+      {/* Decorative Line Accent */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+        <svg className="w-full h-full" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M 0 150 H 220 L 370 300 V 650 L 270 750 H 0" stroke="#00ffd2" strokeWidth="1.5" opacity="0.2" />
+          <circle cx="220" cy="150" r="3" fill="#00ffd2" opacity="0.5" />
+          <circle cx="370" cy="300" r="3" fill="#00ffd2" opacity="0.5" />
+        </svg>
+      </div>
 
-
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
         {/* Title */}
-        <div className="mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold inline-block border-b-4 border-primary pb-3 text-on-surface">
-            About Me
-          </h2>
-        </div>
+        <h2 className="text-3xl md:text-4xl font-black font-space-grotesk tracking-tight text-white mb-6">
+          Profil Singkat
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-          {/* Left Column (Introduction & Passion) */}
-          <div className="flex flex-col gap-6">
-            <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-8 shadow-sm">
-              <h3 className="text-xl font-bold mb-4 text-primary">Introduction</h3>
-              <p className="text-on-surface-variant leading-relaxed text-sm md:text-base mb-4 font-medium">
-                Saya adalah mahasiswa Universitas Bina Sarana Informatika dengan fakultas Teknik & Informatika dengan passion yang tinggi dalam Web Development dan Software Engineering. Saya percaya bahwa teknologi harus digunakan untuk menciptakan solusi yang meaningful dan accessible untuk semua orang. Sebagai seorang IT Enthusiast, Saya menciptakan jam terbang untuk menjembatani kesenjangan antara intuisi manusia dan presisi mesin.
-              </p>
-              <p className="text-on-surface-variant leading-relaxed text-sm md:text-base font-medium">
-                Perjalanan saya dimulai dengan adanya rasa ingin tahu terhadap dunia programming dan dunia digital, dimana baris-baris kode menjadi bahasa pertama saya dalam menciptakan suatu project, dimulai dengan project yang sederhana.
-              </p>
-            </div>
-
-            <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-8 shadow-sm">
-              <h3 className="text-xl font-bold mb-4 text-primary">Passion</h3>
-              <p className="text-on-surface-variant leading-relaxed text-sm md:text-base font-medium">
-                Saya sangat antusias dalam membuat aplikasi web yang user-friendly, mengoptimalkan database, dan mengimplementasikan best practices dalam development. Selalu eager untuk belajar teknologi baru dan berkontribusi pada proyek-proyek yang meaningful.
-              </p>
-            </div>
-          </div>
-
-          {/* Right Column (Education & Goals) */}
-          <div className="flex flex-col gap-6">
-            <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-8 shadow-sm">
-              <h3 className="text-xl font-bold mb-4 text-primary">Education</h3>
-              <div className="space-y-1">
-                <p className="font-bold text-on-surface text-sm md:text-base">Bina Sarana Informatika</p>
-                <p className="text-sm text-on-surface-variant font-medium">Teknik & Informatika</p>
-                <p className="text-sm text-on-surface-variant font-medium">2023 - Present</p>
-              </div>
-            </div>
-
-            <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-8 shadow-sm">
-              <h3 className="text-xl font-bold mb-5 text-primary">Goals</h3>
-              <ul className="space-y-4 text-on-surface-variant text-sm md:text-base font-medium">
-                <li className="flex gap-3 items-start">
-                  <span className="text-primary mt-0.5">→</span>
-                  <span>Menjadi Full-stack Developer yang kompeten</span>
-                </li>
-                <li className="flex gap-3 items-start">
-                  <span className="text-primary mt-0.5">→</span>
-                  <span>Berkontribusi pada open-source projects</span>
-                </li>
-                <li className="flex gap-3 items-start">
-                  <span className="text-primary mt-0.5">→</span>
-                  <span>Membangun produk yang solve real problems</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        {/* Content Paragraph */}
+        <p className="text-base md:text-lg text-slate-300 leading-relaxed font-medium font-inter max-w-3xl mx-auto">
+          Terampil merancang aplikasi modern berbasis web dan mobile, serta memiliki kemampuan{" "}
+          <span className="text-[#00ffd2] font-extrabold drop-shadow-[0_0_10px_rgba(0,255,210,0.2)]">
+            analytical & problem solving
+          </span>{" "}
+          yang kuat dalam debugging maupun troubleshooting hardware/software. Berdomisili di Bojong Gede, Bogor.
+        </p>
       </div>
     </section>
   );
