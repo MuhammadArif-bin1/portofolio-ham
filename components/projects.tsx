@@ -17,7 +17,7 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    year: "2026",
+    year: "2025",
     title: "Remove Background",
     description: "Secara teknis, AI pada website tersebut melakukan Image Segmentation. Ia membagi piksel foto ke dalam dua kategori: Foreground (depan) dan Background (belakang). AI akan mempertahankan piksel yang dianggap sebagai objek penting dan membuang sisanya dengan tingkat kehalusan yang terus meningkat seiring perkembangan teknologi.",
     tech: ["TypeScript", "Next.js", "React", "Tailwind CSS", "AI API"],
@@ -50,12 +50,12 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    year: "2023 - 2024",
-    title: "Aplikasi Pemesanan & Kasir",
-    description: "Aplikasi kasir & pemesanan real-time yang responsif, terintegrasi dengan database untuk pemrosesan transaksi yang efisien.",
-    tech: ["Next.js", "React", "Tailwind CSS", "MySQL"],
-    image: "apotik.png",
-    demoUrl: "https://apotik-ten.vercel.app/",
+    year: "2026",
+    title: "Basic Skincare Ingredient Analyzer",
+    description: "Asisten analisis kandungan skincare berbasis AI untuk mendeteksi kecocokan (Match Score) dan tingkat keamanan (Safety Score) bahan produk kosmetik secara real-time berdasarkan profil unik kulit Anda.",
+    tech: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Gemini AI"],
+    image: "skincare analyzer.png",
+    demoUrl: "https://basic-skincare-ingredient-analyzier.vercel.app/",
     githubUrl: "#",
     buttonText: "Visit Website"
   }

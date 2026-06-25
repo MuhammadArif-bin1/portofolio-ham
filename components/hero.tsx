@@ -33,7 +33,9 @@ export default function Hero() {
             Lihat Portofolio
           </a>
           <a
-            href="mailto:arifykt@gmail.com"
+            href="https://wa.me/6281994379688"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center border border-[#00ffd2]/30 hover:border-[#00ffd2] text-[#00ffd2] hover:bg-[#00ffd2]/5 transition-all duration-300 font-extrabold px-8 py-3 rounded-full text-xs md:text-sm tracking-wider uppercase active:scale-95"
           >
             Hubungi Saya
@@ -70,7 +72,7 @@ export default function Hero() {
 
           {/* WhatsApp */}
           <a
-            href="https://wa.me"
+            href="https://wa.me/6281994379688"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#050b16]/80 border border-slate-800 hover:border-[#00ffd2]/50 text-slate-300 hover:text-white hover:-translate-y-0.5 transition-all duration-300 shadow-md text-xs md:text-sm font-semibold font-space-grotesk cursor-pointer"

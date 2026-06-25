@@ -70,7 +70,7 @@ export default function Contact() {
             {/* WhatsApp */}
             <a 
               className="w-12 h-12 bg-surface-container-lowest border border-slate-800 rounded-full flex items-center justify-center hover:-translate-y-1 hover:border-primary/50 transition-all shadow-sm group" 
-              href="https://wa.me"
+              href="https://wa.me/6281994379688"
               target="_blank"
               rel="noopener noreferrer"
             >
