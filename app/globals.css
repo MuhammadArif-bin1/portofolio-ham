@@ -57,3 +57,66 @@ body {
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
 }
+
+/* ─── Timeline 3D Styles ─── */
+
+/* Glowing animated track */
+.timeline-track {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 210, 0.05) 0%,
+    rgba(0, 255, 210, 0.35) 50%,
+    rgba(0, 255, 210, 0.05) 100%
+  );
+  background-size: 100% 200%;
+  animation: trackPulse 4s ease-in-out infinite;
+}
+
+/* Pulsing timeline nodes */
+.timeline-node {
+  box-shadow: 0 0 0 4px rgba(0, 255, 210, 0.2);
+  animation: nodePulse 2.5s ease-in-out infinite;
+}
+
+@keyframes trackPulse {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 0% 100%; }
+}
+
+@keyframes nodePulse {
+  0%, 100% {
+    box-shadow: 0 0 0 4px rgba(0, 255, 210, 0.2), 0 0 12px rgba(0, 255, 210, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 255, 210, 0.12), 0 0 24px rgba(0, 255, 210, 0.2);
+  }
+}
+
+/* Lightbox animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes lightboxIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Badge shimmer effect */
+@keyframes badgeShimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+    filter: brightness(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: brightness(1.15);
+  }
+}
