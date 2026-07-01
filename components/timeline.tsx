@@ -11,6 +11,8 @@ interface Milestone {
   link: string;
   linkLabel: string;
   side: "left" | "right";
+  /** stripe color class name */
+  stripeClass: string;
   /** Optional photo gallery for achievements */
   photos?: { src: string; alt: string; badge?: string }[];
 }
@@ -24,6 +26,7 @@ const milestones: Milestone[] = [
     link: "mikrotik.PNG",
     linkLabel: "Sertifikat",
     side: "left",
+    stripeClass: "stripe-gold",
     photos: [
       {
         src: "/mikrotik.PNG",
@@ -40,6 +43,7 @@ const milestones: Milestone[] = [
     link: "pcap.PNG",
     linkLabel: "Sertifikat",
     side: "right",
+    stripeClass: "stripe-blue",
     photos: [
       {
         src: "/pcap.PNG",
@@ -56,6 +60,7 @@ const milestones: Milestone[] = [
     link: "fundamental.PNG",
     linkLabel: "Sertifikat",
     side: "left",
+    stripeClass: "stripe-pink",
     photos: [
       {
         src: "/fundamental.PNG",
@@ -67,12 +72,13 @@ const milestones: Milestone[] = [
   {
     year: "2025",
     icon: "✨",
-    title: "JNKTI: Jurnal Nasional Komputasi dan Teknologi Informasi",
+    title: "JNKTI Jurnal Nasional",
     description:
       "Analisis Sentimen Pengguna TikTok Terhadap Postingan Tiktok Smartfrenworld Menggunakan Algoritma Logistic Regression",
     link: "Jurnal Semester 5.pdf",
     linkLabel: "Detail",
     side: "right",
+    stripeClass: "stripe-purple",
   },
   {
     year: "2025",
@@ -83,6 +89,7 @@ const milestones: Milestone[] = [
     link: "it bootcamp.PNG",
     linkLabel: "Sertifikat",
     side: "left",
+    stripeClass: "stripe-green",
     photos: [
       {
         src: "/bootcamp-showcase.png",
@@ -92,105 +99,6 @@ const milestones: Milestone[] = [
     ],
   },
 ];
-
-/* ─── 3D Tilt Card ─── */
-function TiltCard({
-  children,
-  className = "",
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [transform, setTransform] = useState(
-    "perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)"
-  );
-  const [shadow, setShadow] = useState("0 8px 32px rgba(0,0,0,0.3)");
-  const [glowOpacity, setGlowOpacity] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-
-  /* Intersection Observer — fade-in from depth */
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), delay);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.15 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [delay]);
-
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      const el = ref.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const midX = rect.width / 2;
-      const midY = rect.height / 2;
-      const rotateY = ((x - midX) / midX) * 12;
-      const rotateX = ((midY - y) / midY) * 12;
-      setTransform(
-        `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03,1.03,1.03)`
-      );
-      setShadow(
-        `${-rotateY * 1.5}px ${rotateX * 1.5}px 40px rgba(0,255,210,0.12), 0 8px 32px rgba(0,0,0,0.4)`
-      );
-      setGlowOpacity(1);
-    },
-    []
-  );
-
-  const handleMouseLeave = useCallback(() => {
-    setTransform(
-      "perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)"
-    );
-    setShadow("0 8px 32px rgba(0,0,0,0.3)");
-    setGlowOpacity(0);
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={className}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        transform: isVisible
-          ? transform
-          : "perspective(800px) rotateX(8deg) translateY(60px) scale3d(0.92,0.92,0.92)",
-        opacity: isVisible ? 1 : 0,
-        boxShadow: shadow,
-        transition: "transform 0.35s cubic-bezier(.03,.98,.52,.99), opacity 0.7s ease, box-shadow 0.35s ease",
-        transformStyle: "preserve-3d",
-        willChange: "transform, opacity",
-        position: "relative",
-      }}
-    >
-      {/* Glow border overlay */}
-      <div
-        className="pointer-events-none absolute inset-0 rounded-xl"
-        style={{
-          opacity: glowOpacity,
-          transition: "opacity 0.35s ease",
-          boxShadow:
-            "inset 0 0 0 1px rgba(0,255,210,0.35), 0 0 20px rgba(0,255,210,0.08)",
-          borderRadius: "inherit",
-        }}
-      />
-      {children}
-    </div>
-  );
-}
 
 /* ─── Lightbox Gallery Modal ─── */
 function Lightbox({
@@ -317,151 +225,385 @@ function Lightbox({
   );
 }
 
-/* ─── Main Timeline ─── */
+/* ─── 3D Polaroid Card ─── */
+function PolaroidCard({
+  milestone,
+  index,
+  activeIndex,
+  total,
+  onClick,
+  onPhotoClick,
+}: {
+  milestone: Milestone;
+  index: number;
+  activeIndex: number;
+  total: number;
+  onClick: () => void;
+  onPhotoClick: (photos: { src: string; alt: string; badge?: string }[], startIndex: number) => void;
+}) {
+  const isActive = index === activeIndex;
+  const offset = index - activeIndex;
+
+  // Calculate 3D position based on offset from active
+  const getTransform = () => {
+    if (offset === 0) {
+      // Active card — front and center
+      return "translateX(0px) translateZ(80px) rotateY(0deg) scale(1)";
+    }
+
+    const direction = offset > 0 ? 1 : -1;
+    const absOffset = Math.abs(offset);
+
+    if (absOffset === 1) {
+      // Immediate neighbors
+      return `translateX(${direction * 280}px) translateZ(-40px) rotateY(${-direction * 25}deg) scale(0.82)`;
+    }
+
+    if (absOffset === 2) {
+      // Second neighbors
+      return `translateX(${direction * 480}px) translateZ(-160px) rotateY(${-direction * 40}deg) scale(0.65)`;
+    }
+
+    // Far cards — hidden offscreen
+    return `translateX(${direction * 700}px) translateZ(-280px) rotateY(${-direction * 55}deg) scale(0.5)`;
+  };
+
+  const getOpacity = () => {
+    const absOffset = Math.abs(offset);
+    if (absOffset === 0) return 1;
+    if (absOffset === 1) return 0.85;
+    if (absOffset === 2) return 0.55;
+    return 0;
+  };
+
+  const getZIndex = () => {
+    return total - Math.abs(offset);
+  };
+
+  const getFilter = () => {
+    const absOffset = Math.abs(offset);
+    if (absOffset === 0) return "none";
+    if (absOffset === 1) return "brightness(0.85)";
+    return "brightness(0.7) blur(1px)";
+  };
+
+  // Subtle random tilt for organic feel
+  const tiltDeg = ((index * 7 + 3) % 9) - 4; // Deterministic pseudo-random between -4 and 4
+
+  return (
+    <div
+      className="polaroid-card absolute"
+      onClick={(e) => {
+        e.stopPropagation();
+        if (isActive && milestone.photos && milestone.photos.length > 0) {
+          onPhotoClick(milestone.photos, 0);
+        } else {
+          onClick();
+        }
+      }}
+      style={{
+        width: "280px",
+        transform: `${getTransform()} rotate(${isActive ? 0 : tiltDeg}deg)`,
+        opacity: getOpacity(),
+        zIndex: getZIndex(),
+        filter: getFilter(),
+        pointerEvents: Math.abs(offset) > 2 ? "none" : "auto",
+        left: "50%",
+        marginLeft: "-140px",
+        top: "0",
+      }}
+    >
+      {/* Photo area with stripe pattern */}
+      <div
+        className={`polaroid-stripe ${milestone.stripeClass} relative overflow-hidden`}
+        style={{ width: "256px", height: "256px" }}
+      >
+        {/* If there's an actual photo, show it */}
+        {milestone.photos && milestone.photos.length > 0 ? (
+          <img
+            src={milestone.photos[0].src}
+            alt={milestone.photos[0].alt}
+            className="w-full h-full object-cover"
+            style={{ mixBlendMode: "multiply", opacity: 0.7 }}
+          />
+        ) : null}
+
+        {/* Year tag */}
+        <div className="polaroid-year-tag">
+          {milestone.year} / {milestone.icon}
+        </div>
+
+        {/* Badge overlay on active */}
+        {isActive && milestone.photos?.[0]?.badge && (
+          <div
+            className="absolute bottom-3 left-3 px-3 py-1 rounded-full text-xs font-bold shadow-md"
+            style={{
+              background: "linear-gradient(135deg, #f59e0b, #eab308, #f59e0b)",
+              color: "#000",
+            }}
+          >
+            {milestone.photos[0].badge}
+          </div>
+        )}
+
+        {/* View indicator on active */}
+        {isActive && milestone.photos && milestone.photos.length > 0 && (
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/30">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 text-black text-sm font-semibold shadow-lg">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M15 3h6v6M14 10l6.1-6.1M9 21H3v-6M10 14l-6.1 6.1" />
+              </svg>
+              Lihat
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Label area */}
+      <div className="mt-2 px-1">
+        <p className="polaroid-label text-base truncate" title={milestone.title}>
+          {milestone.title}
+        </p>
+        {isActive && (
+          <p
+            className="text-xs mt-1 line-clamp-2"
+            style={{ color: "#666", fontStyle: "normal", fontFamily: "'Inter', sans-serif" }}
+          >
+            {milestone.description}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ─── Detail Panel for Active Card ─── */
+function DetailPanel({
+  milestone,
+  onPhotoClick,
+}: {
+  milestone: Milestone;
+  onPhotoClick: (photos: { src: string; alt: string; badge?: string }[], startIndex: number) => void;
+}) {
+  return (
+    <div
+      className="mt-8 max-w-lg mx-auto text-center"
+      style={{
+        animation: "fadeIn 0.5s ease forwards",
+      }}
+    >
+      {/* Icon + Year */}
+      <div className="flex items-center justify-center gap-3 mb-3">
+        <span className="text-3xl">{milestone.icon}</span>
+        <span className="text-primary text-sm font-bold tracking-widest uppercase">
+          {milestone.year}
+        </span>
+      </div>
+
+      {/* Title */}
+      <h4 className="text-on-surface text-xl font-bold mb-2">{milestone.title}</h4>
+
+      {/* Description */}
+      <p className="text-on-surface-variant text-sm mb-5 leading-relaxed max-w-md mx-auto">
+        {milestone.description}
+      </p>
+
+      {/* Action buttons */}
+      <div className="flex items-center justify-center gap-4 flex-wrap">
+        {/* Certificate / Detail Link */}
+        <a
+          href={milestone.link}
+          className="text-primary font-medium text-sm flex items-center w-max border-b-2 border-primary/30 hover:border-primary transition-colors pb-0.5"
+        >
+          {milestone.linkLabel} <span className="ml-1 text-xs">↗</span>
+        </a>
+
+        {/* View Photos Button */}
+        {milestone.photos && milestone.photos.length > 0 && (
+          <button
+            onClick={() => onPhotoClick(milestone.photos!, 0)}
+            className="flex items-center gap-1.5 text-sm font-medium px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 hover:bg-primary/20 hover:border-primary/50 transition-all cursor-pointer"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="m21 15-5-5L5 21" />
+            </svg>
+            Lihat Gambar
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ─── Main Timeline — 3D Polaroid Gallery ─── */
 export default function Timeline() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const touchStartX = useRef(0);
   const [lightbox, setLightbox] = useState<{
     photos: { src: string; alt: string; badge?: string }[];
     startIndex: number;
   } | null>(null);
 
+  // Intersection observer for entrance animation
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (lightbox) return; // Don't navigate carousel when lightbox is open
+      if (e.key === "ArrowLeft") {
+        setActiveIndex((i) => (i > 0 ? i - 1 : milestones.length - 1));
+      }
+      if (e.key === "ArrowRight") {
+        setActiveIndex((i) => (i < milestones.length - 1 ? i + 1 : 0));
+      }
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [lightbox]);
+
+  const goLeft = useCallback(() => {
+    setActiveIndex((i) => (i > 0 ? i - 1 : milestones.length - 1));
+  }, []);
+
+  const goRight = useCallback(() => {
+    setActiveIndex((i) => (i < milestones.length - 1 ? i + 1 : 0));
+  }, []);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchEnd = useCallback(
+    (e: React.TouchEvent) => {
+      const diff = touchStartX.current - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) goRight();
+        else goLeft();
+      }
+    },
+    [goLeft, goRight]
+  );
+
+  const openLightbox = useCallback(
+    (photos: { src: string; alt: string; badge?: string }[], startIndex: number) => {
+      setLightbox({ photos, startIndex });
+    },
+    []
+  );
+
   return (
     <>
       <section
-        className="relative z-10 bg-transparent py-24"
+        ref={sectionRef}
+        className="relative z-10 bg-transparent py-24 overflow-hidden"
         id="timeline"
-        style={{ perspective: "1200px" }}
       >
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           {/* Section heading */}
-          <div className="mb-16">
+          <div className="mb-16 text-center">
             <h2 className="text-4xl font-bold text-on-surface mb-3 tracking-tight">
               Garis Waktu Pencapaian
             </h2>
-            <div className="w-24 h-1 bg-primary" />
+            <div className="w-24 h-1 bg-primary mx-auto" />
+            <p className="text-on-surface-variant text-sm mt-4">
+              Klik foto untuk melihat detail • Geser atau gunakan tombol panah untuk navigasi
+            </p>
           </div>
 
-          <div className="relative">
-            {/* Glowing Track */}
-            <div className="absolute left-[17px] md:left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 timeline-track" />
+          {/* 3D Carousel Container */}
+          <div
+            className={`relative ${isVisible ? "polaroid-gallery-enter" : "opacity-0"}`}
+            style={{
+              perspective: "1200px",
+              perspectiveOrigin: "50% 50%",
+            }}
+          >
+            {/* Carousel Stage */}
+            <div
+              className="relative mx-auto"
+              style={{
+                height: "420px",
+                transformStyle: "preserve-3d",
+              }}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
+              {milestones.map((m, i) => (
+                <PolaroidCard
+                  key={i}
+                  milestone={m}
+                  index={i}
+                  activeIndex={activeIndex}
+                  total={milestones.length}
+                  onClick={() => setActiveIndex(i)}
+                  onPhotoClick={openLightbox}
+                />
+              ))}
+            </div>
 
-            {milestones.map((m, i) => (
-              <div key={i} className="relative w-full mb-16">
-                <div
-                  className={`w-full md:w-[45%] pl-12 md:pl-0 ${
-                    m.side === "right" ? "md:ml-auto" : ""
-                  }`}
-                >
-                  <TiltCard
-                    delay={i * 150}
-                    className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 text-left"
-                  >
-                    {/* Year & Icon */}
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-2xl">{m.icon}</span>
-                      <span className="text-primary text-sm font-bold">
-                        {m.year}
-                      </span>
-                    </div>
+            {/* Navigation Controls */}
+            <div className="flex items-center justify-center gap-8 mt-6">
+              {/* Left Arrow */}
+              <button
+                className="carousel-nav-btn"
+                onClick={goLeft}
+                aria-label="Previous"
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
 
-                    {/* Title & Description */}
-                    <h4 className="text-on-surface text-xl font-bold mb-2">
-                      {m.title}
-                    </h4>
-                    <p className="text-on-surface-variant text-sm mb-4 leading-relaxed">
-                      {m.description}
-                    </p>
-
-                    {/* Photo Showcase Gallery */}
-                    {m.photos && m.photos.length > 0 && (
-                      <div
-                        className={`mb-4 grid gap-2 ${
-                          m.photos.length > 1
-                            ? "grid-cols-2"
-                            : "grid-cols-1"
-                        }`}
-                      >
-                        {m.photos.map((photo, pi) => (
-                          <button
-                            key={pi}
-                            onClick={() =>
-                              setLightbox({
-                                photos: m.photos!,
-                                startIndex: pi,
-                              })
-                            }
-                            className="group relative w-full rounded-lg overflow-hidden border border-primary/20 hover:border-primary/50 transition-all cursor-pointer bg-surface-container-low"
-                          >
-                            {/* Gradient overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 pointer-events-none" />
-
-                            {/* Badge on thumbnail */}
-                            {photo.badge && (
-                              <div className="absolute top-2 left-2 z-20 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-black font-bold text-xs shadow-md">
-                                {photo.badge}
-                              </div>
-                            )}
-
-                            {/* Click indicator */}
-                            <div className="absolute bottom-2 right-2 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M15 3h6v6M14 10l6.1-6.1M9 21H3v-6M10 14l-6.1 6.1" />
-                              </svg>
-                              Lihat
-                            </div>
-
-                            {/* Thumbnail Image */}
-                            <img
-                              src={photo.src}
-                              alt={photo.alt}
-                              className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                            />
-                          </button>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* Action Buttons */}
-                    <div className="flex items-center gap-4 flex-wrap">
-                      {/* Certificate / Detail Link */}
-                      <a
-                        href={m.link}
-                        className="text-primary font-medium text-sm flex items-center w-max border-b-2 border-primary/30 hover:border-primary transition-colors pb-0.5"
-                      >
-                        {m.linkLabel}{" "}
-                        <span className="ml-1 text-xs">↗</span>
-                      </a>
-
-                      {/* View Photos Button */}
-                      {m.photos && m.photos.length > 0 && (
-                        <button
-                          onClick={() =>
-                            setLightbox({
-                              photos: m.photos!,
-                              startIndex: 0,
-                            })
-                          }
-                          className="flex items-center gap-1.5 text-sm font-medium px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 hover:bg-primary/20 hover:border-primary/50 transition-all cursor-pointer"
-                        >
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <rect x="3" y="3" width="18" height="18" rx="2" />
-                            <circle cx="8.5" cy="8.5" r="1.5" />
-                            <path d="m21 15-5-5L5 21" />
-                          </svg>
-                          Lihat Gambar
-                          {m.photos.length > 1 && (
-                            <span className="text-xs opacity-70">({m.photos.length})</span>
-                          )}
-                        </button>
-                      )}
-                    </div>
-                  </TiltCard>
-                </div>
-
-                {/* Timeline Node */}
-                <div className="absolute left-[17px] md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary z-10 timeline-node" />
+              {/* Dots */}
+              <div className="flex items-center gap-3">
+                {milestones.map((_, i) => (
+                  <button
+                    key={i}
+                    className={`carousel-dot ${i === activeIndex ? "active" : ""}`}
+                    onClick={() => setActiveIndex(i)}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
+                ))}
               </div>
-            ))}
+
+              {/* Right Arrow */}
+              <button
+                className="carousel-nav-btn"
+                onClick={goRight}
+                aria-label="Next"
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+            </div>
           </div>
+
+          {/* Active Card Detail Panel */}
+          <DetailPanel
+            key={activeIndex}
+            milestone={milestones[activeIndex]}
+            onPhotoClick={openLightbox}
+          />
         </div>
       </section>
 
