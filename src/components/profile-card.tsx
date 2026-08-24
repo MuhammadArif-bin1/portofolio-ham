@@ -5,7 +5,7 @@ export default function ProfileCard() {
       <img
         alt="Professional portrait"
         className="w-full aspect-[4/5] object-cover rounded-xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
-        src="profile.jpeg"
+        src="/Sertifikat/profile.jpeg"
       />
     </div>
   );

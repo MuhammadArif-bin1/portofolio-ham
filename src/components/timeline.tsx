@@ -23,13 +23,13 @@ const milestones: Milestone[] = [
     icon: "📡",
     title: "Mikrotik Networking Academy",
     description: "Mikrotik MTCNA: Mikrotik Certified Network Associate",
-    link: "mikrotik.PNG",
+    link: "/Sertifikat/mikrotik.PNG",
     linkLabel: "Sertifikat",
     side: "left",
     stripeClass: "stripe-gold",
     photos: [
       {
-        src: "/mikrotik.PNG",
+        src: "/Sertifikat/mikrotik.PNG",
         alt: "Sertifikat Mikrotik MTCNA - Mikrotik Certified Network Associate",
         badge: "📡 MTCNA",
       },
@@ -40,13 +40,13 @@ const milestones: Milestone[] = [
     icon: "🐍",
     title: "Cisco Networking Academy",
     description: "PCAP: Programming Essentials In Python",
-    link: "pcap.PNG",
+    link: "/Sertifikat/pcap.PNG",
     linkLabel: "Sertifikat",
     side: "right",
     stripeClass: "stripe-blue",
     photos: [
       {
-        src: "/pcap.PNG",
+        src: "/Sertifikat/pcap.PNG",
         alt: "Sertifikat PCAP - Programming Essentials In Python",
         badge: "🐍 PCAP",
       },
@@ -57,13 +57,13 @@ const milestones: Milestone[] = [
     icon: "🎨",
     title: "Seminar",
     description: "Fundamental Of User Interface, User Experience",
-    link: "fundamental.PNG",
+    link: "/Sertifikat/fundamental.PNG",
     linkLabel: "Sertifikat",
     side: "left",
     stripeClass: "stripe-pink",
     photos: [
       {
-        src: "/fundamental.PNG",
+        src: "/Sertifikat/fundamental.PNG",
         alt: "Sertifikat Fundamental UI/UX Design",
         badge: "🎨 UI/UX",
       },
@@ -75,7 +75,7 @@ const milestones: Milestone[] = [
     title: "JNKTI Jurnal Nasional",
     description:
       "Analisis Sentimen Pengguna TikTok Terhadap Postingan Tiktok Smartfrenworld Menggunakan Algoritma Logistic Regression",
-    link: "Jurnal Semester 5.pdf",
+    link: "/Sertifikat/Jurnal Semester 5.pdf",
     linkLabel: "Detail",
     side: "right",
     stripeClass: "stripe-purple",
@@ -86,13 +86,13 @@ const milestones: Milestone[] = [
     title: "IT Bootcamp",
     description:
       "Tranformasi Digital : Integrasi IoT & kecerdasan buatan untuk solusi masa",
-    link: "it bootcamp.PNG",
+    link: "/Sertifikat/it bootcamp.PNG",
     linkLabel: "Sertifikat",
     side: "left",
     stripeClass: "stripe-green",
     photos: [
       {
-        src: "/bootcamp-showcase.png",
+        src: "/Sertifikat/bootcamp-showcase.png",
         alt: "IT Bootcamp - Sertifikat & Juara 1 Muhammad Arif Giovanni",
         badge: "🏆 Juara 1",
       },

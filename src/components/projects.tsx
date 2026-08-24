@@ -21,7 +21,7 @@ const projects: Project[] = [
     title: "Remove Background",
     description: "Secara teknis, AI pada website tersebut melakukan Image Segmentation. Ia membagi piksel foto ke dalam dua kategori: Foreground (depan) dan Background (belakang). AI akan mempertahankan piksel yang dianggap sebagai objek penting dan membuang sisanya dengan tingkat kehalusan yang terus meningkat seiring perkembangan teknologi.",
     tech: ["TypeScript", "Next.js", "React", "Tailwind CSS", "AI API"],
-    image: "remove.png",
+    image: "/Background/remove.png",
     demoUrl: "https://remove-background-indol.vercel.app",
     githubUrl: "https://github.com/MuhammadArif-bin1/remove-background",
     buttonText: "Visit Website"
@@ -32,7 +32,7 @@ const projects: Project[] = [
     title: "Smartbox Asisstant Berbasis WEB",
     description: "SmartBox Assistant adalah asisten pintar berbasis IoT yang menggabungkan teknologi suara, tampilan informasi real-time, dan konektivitas nirkabel untuk membantu pengguna berinteraksi dengan perangkat secara lebih mudah dan cerdas.",
     tech: ["Next.js", "ESP32-S3 Devkit", "Tailwind CSS", "TypeScript", "IoT", "MQTT"],
-    image: "smartbox.png",
+    image: "/Background/smartbox.png",
     demoUrl: "https://smartbox-asisten.vercel.app",
     githubUrl: "https://github.com/MuhammadArif-bin1/smartbox-asisten",
     buttonText: "Visit Website"
@@ -43,7 +43,7 @@ const projects: Project[] = [
     title: "Sistem Manajemen Laundry Real-time",
     description: "Aplikasi pengelolaan layanan laundry komprehensif berbasis web. Mencakup portal kasir, pencuci, kurir, dan admin. Memiliki fitur pelacakan resi pakaian secara real-time bagi pelanggan yang diproses dengan AJAX.",
     tech: ["CodeIgniter 4", "PHP", "Bootstrap", "MySQL", "AJAX"],
-    image: "akloundry.png",
+    image: "/Background/akloundry.png",
     demoUrl: "https://laundrykuporject.great-site.net",
     githubUrl: "#",
     buttonText: "Visit Website"
@@ -54,8 +54,30 @@ const projects: Project[] = [
     title: "Basic Skincare Ingredient Analyzer",
     description: "Asisten analisis kandungan skincare berbasis AI untuk mendeteksi kecocokan (Match Score) dan tingkat keamanan (Safety Score) bahan produk kosmetik secara real-time berdasarkan profil unik kulit Anda.",
     tech: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Gemini AI"],
-    image: "skincare analyzer.png",
+    image: "/Background/skincare analyzer.png",
     demoUrl: "https://basic-skincare-ingredient-analyzier.vercel.app/",
+    githubUrl: "#",
+    buttonText: "Visit Website"
+  },
+  {
+    id: 5,
+    year: "2026",
+    title: "Sistem Penggajian & Presensi Karyawan",
+    description: "Aplikasi portal manajemen payroll dan presensi karyawan terintegrasi berbasis web. Mengotomatisasi kalkulasi gaji, pencatatan kehadiran, tunjangan, potongan, serta pembuatan slip gaji digital secara efisien, akurat, dan transparan.",
+    tech: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS", "Prisma ORM"],
+    image: "/Background/Penggajian.png",
+    demoUrl: "https://sistem-penggajian-omega.vercel.app",
+    githubUrl: "#",
+    buttonText: "Visit Website"
+  },
+  {
+    id: 6,
+    year: "2026",
+    title: "Landing Page",
+    description: "Deskripsi proyek baru Anda. Jelaskan latar belakang, fitur unggulan, dan masalah yang berhasil diselesaikan melalui proyek ini.",
+    tech: ["React", "Node.js", "PostgreSQL", "Next.js", "Tailwind CSS"],
+    image: "/Background/smartbox.png",
+    demoUrl: "#",
     githubUrl: "#",
     buttonText: "Visit Website"
   }

@@ -12,7 +12,7 @@ export default function Hero() {
           <img
             alt="Arif Giovanni"
             className="w-full h-full object-cover"
-            src="profile.jpeg"
+            src="/Sertifikat/profile.jpeg"
           />
         </div>
 
