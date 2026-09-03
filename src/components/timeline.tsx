@@ -11,8 +11,8 @@ interface Milestone {
   link: string;
   linkLabel: string;
   side: "left" | "right";
-  /** stripe color class name */
-  stripeClass: string;
+  /** Optional stripe color class name */
+  stripeClass?: string;
   /** Optional photo gallery for achievements */
   photos?: { src: string; alt: string; badge?: string }[];
 }
@@ -313,20 +313,26 @@ function PolaroidCard({
         top: "0",
       }}
     >
-      {/* Photo area with stripe pattern */}
+      {/* Photo area without color tint / stripes */}
       <div
-        className={`polaroid-stripe ${milestone.stripeClass} relative overflow-hidden`}
+        className="relative overflow-hidden bg-slate-900"
         style={{ width: "256px", height: "256px" }}
       >
-        {/* If there's an actual photo, show it */}
+        {/* If there's an actual photo, show it in full original color */}
         {milestone.photos && milestone.photos.length > 0 ? (
           <img
             src={milestone.photos[0].src}
             alt={milestone.photos[0].alt}
             className="w-full h-full object-cover"
-            style={{ mixBlendMode: "multiply", opacity: 0.7 }}
           />
-        ) : null}
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-[#070e1c] text-slate-300">
+            <span className="text-4xl mb-3">{milestone.icon}</span>
+            <span className="text-sm font-semibold text-white tracking-wide">
+              {milestone.title}
+            </span>
+          </div>
+        )}
 
         {/* Year tag */}
         <div className="polaroid-year-tag">
