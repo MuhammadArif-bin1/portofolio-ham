@@ -73,11 +73,11 @@ const projects: Project[] = [
   {
     id: 6,
     year: "2026",
-    title: "Landing Page",
-    description: "Deskripsi proyek baru Anda. Jelaskan latar belakang, fitur unggulan, dan masalah yang berhasil diselesaikan melalui proyek ini.",
-    tech: ["React", "Node.js", "PostgreSQL", "Next.js", "Tailwind CSS"],
-    image: "/Background/smartbox.png",
-    demoUrl: "#",
+    title: "E-Ticketing Tiket Pesawat",
+    description: "Platform e-ticketing dan reservasi penerbangan terintegrasi berbasis web. Menyediakan fitur pencarian rute domestik, pemilihan kelas kabin, simulasi booking tiket, serta layanan web check-in mandiri 24 jam dengan penerbitan boarding pass digital dan QR Code secara otomatis.",
+    tech: ["Next.js", "TypeScript", "React", "Tailwind CSS", "PostgreSQL", "Prisma"],
+    image: "/Background/tiket pesawat.png",
+    demoUrl: "https://ticket-pesawat.vercel.app",
     githubUrl: "#",
     buttonText: "Visit Website"
   }
