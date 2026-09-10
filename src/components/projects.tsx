@@ -80,6 +80,39 @@ const projects: Project[] = [
     demoUrl: "https://ticket-pesawat.vercel.app",
     githubUrl: "#",
     buttonText: "Visit Website"
+  },
+  {
+    id: 7,
+    year: "2026",
+    title: "Landing Page BPR Hasamitra",
+    description: "Website profil dan landing page resmi PT BPR Hasamitra Jawa Barat yang modern dan responsif. Menyajikan informasi produk perbankan, tabungan, deposito, program cicil emas, legalitas OJK & LPS, piagam penghargaan, serta pusat formulir digital dan berkas permohonan kredit.",
+    tech: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
+    image: "/Background/landing-page-hasamitra.png",
+    demoUrl: "https://website-hasamitra.vercel.app",
+    githubUrl: "#",
+    buttonText: "Visit Website"
+  },
+  {
+    id: 8,
+    year: "2026",
+    title: "Pengajuan ATK",
+    description: "Sistem informasi portal pengajuan Alat Tulis Kantor (ATK) karyawan berbasis web. Dilengkapi katalog jenis barang ATK, pemantauan ketersediaan stok fisik gudang secara live update, formulir dinamis multi-barang, serta portal admin untuk approval dan pengadaan barang.",
+    tech: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
+    image: "/Background/pengajuan-atk.png",
+    demoUrl: "https://pengajuan-atk.vercel.app",
+    githubUrl: "#",
+    buttonText: "Visit Website"
+  },
+  {
+    id: 9,
+    year: "2026",
+    title: "Kalkulator Produk",
+    description: "Platform kalkulator dan simulasi produk perbankan digital. Memfasilitasi perhitungan estimasi bunga deposito gross & net (PPh final), simulasi angsuran program cicil emas batangan, formulir registrasi data nasabah baru, dengan sinkronisasi database cloud Supabase PostgreSQL.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
+    image: "/Background/kalkulator-produk.png",
+    demoUrl: "https://kalkulator-theta-snowy.vercel.app",
+    githubUrl: "#",
+    buttonText: "Visit Website"
   }
 ];
 
