@@ -27,10 +27,27 @@ export default function Hero() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-5 mb-14">
           <a
-            href="#projects"
-            className="inline-flex items-center justify-center bg-gradient-to-r from-[#00ffd2] to-[#00b8ff] text-slate-950 font-extrabold px-8 py-3 rounded-full text-xs md:text-sm tracking-wider hover:opacity-90 hover:shadow-[0_0_20px_rgba(0,255,210,0.4)] transition-all uppercase duration-300 active:scale-95"
+            href="/cv/CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#00ffd2] to-[#00b8ff] text-slate-950 font-extrabold px-8 py-3 rounded-full text-xs md:text-sm tracking-wider hover:opacity-90 hover:shadow-[0_0_20px_rgba(0,255,210,0.4)] transition-all uppercase duration-300 active:scale-95"
           >
-            Lihat Portofolio
+            <svg
+              className="w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+              <polyline points="10 9 9 9 8 9" />
+            </svg>
+            <span>Curriculum Vitae (CV)</span>
           </a>
           <a
             href="https://wa.me/6281994379688"
