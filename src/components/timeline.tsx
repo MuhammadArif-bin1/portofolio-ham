@@ -90,13 +90,30 @@ const milestones: Milestone[] = [
     ],
   },
   {
+    year: "2024",
+    category: "Sertifikasi Jaringan",
+    title: "Cisco Networking Academy",
+    description: "CCNAv7: Introduction to Networks",
+    link: "/Sertifikat/ccnav7.PNG",
+    linkLabel: "Lihat Sertifikat",
+    side: "left",
+    stripeClass: "stripe-cyan",
+    photos: [
+      {
+        src: "/Sertifikat/ccnav7.PNG",
+        alt: "Sertifikat Cisco - CCNAv7: Introduction to Networks",
+        badge: "CCNAv7",
+      },
+    ],
+  },
+  {
     year: "2023",
     category: "Sertifikasi Python",
     title: "Cisco Networking Academy",
     description: "PCAP: Programming Essentials In Python",
     link: "/Sertifikat/pcap.PNG",
     linkLabel: "Lihat Sertifikat",
-    side: "left",
+    side: "right",
     stripeClass: "stripe-blue",
     photos: [
       {
@@ -113,7 +130,7 @@ const milestones: Milestone[] = [
     description: "Fundamental Of User Interface, User Experience Design",
     link: "/Sertifikat/fundamental.PNG",
     linkLabel: "Lihat Sertifikat",
-    side: "right",
+    side: "left",
     stripeClass: "stripe-pink",
     photos: [
       {
