@@ -164,7 +164,7 @@ const projects: Project[] = [
     description:
       "Platform akademik digital terintegrasi untuk manajemen perpustakaan, distribusi materi pembelajaran, dan pengelolaan data mahasiswa. Dilengkapi sistem autentikasi multi-role dan dashboard interaktif.",
     tech: ["Next.js", "TypeScript", "React", "Tailwind CSS", "Prisma", "PostgreSQL"],
-    image: "/Background/ruang-university.jpg",
+    image: "/Background/Ruang University.png",
     demoUrl: "https://ruang-univesity-203giul61-muhammadarif-bins-projects.vercel.app/",
     githubUrl: "#",
     buttonText: "Kunjungi Website",
@@ -212,19 +212,17 @@ export default function Projects() {
             <button
               key={tab.id}
               onClick={() => setActiveFilter(tab.id)}
-              className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold font-space-grotesk uppercase tracking-wider transition-all duration-300 cursor-pointer flex items-center gap-2 ${
-                activeFilter === tab.id
+              className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold font-space-grotesk uppercase tracking-wider transition-all duration-300 cursor-pointer flex items-center gap-2 ${activeFilter === tab.id
                   ? "bg-gradient-to-r from-[#00ffd2] to-[#00b894] text-slate-950 shadow-lg shadow-[#00ffd2]/25 scale-105"
                   : "bg-slate-900/70 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800 hover:border-slate-700"
-              }`}
+                }`}
             >
               <span>{tab.label}</span>
               <span
-                className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
-                  activeFilter === tab.id
+                className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${activeFilter === tab.id
                     ? "bg-slate-950/20 text-slate-950 font-black"
                     : "bg-slate-800 text-slate-400"
-                }`}
+                  }`}
               >
                 {tab.count}
               </span>
