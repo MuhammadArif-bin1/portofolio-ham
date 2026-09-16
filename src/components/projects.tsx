@@ -154,6 +154,21 @@ const projects: Project[] = [
     githubUrl: "#",
     buttonText: "Kunjungi Website",
   },
+  {
+    id: 10,
+    year: "2026",
+    title: "Ruang University",
+    category: "E-Learning Platform",
+    badge: "Academic System",
+    filterType: "web-erp",
+    description:
+      "Platform akademik digital terintegrasi untuk manajemen perpustakaan, distribusi materi pembelajaran, dan pengelolaan data mahasiswa. Dilengkapi sistem autentikasi multi-role dan dashboard interaktif.",
+    tech: ["Next.js", "TypeScript", "React", "Tailwind CSS", "Prisma", "PostgreSQL"],
+    image: "/Background/ruang-university.jpg",
+    demoUrl: "https://ruang-univesity-203giul61-muhammadarif-bins-projects.vercel.app/",
+    githubUrl: "#",
+    buttonText: "Kunjungi Website",
+  },
 ];
 
 type FilterCategory = "all" | "ai-iot" | "web-erp" | "fintech";
