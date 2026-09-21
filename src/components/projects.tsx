@@ -260,21 +260,14 @@ export default function Projects() {
               <div className="absolute -top-24 -right-24 w-52 h-52 bg-[#00ffd2]/5 rounded-full blur-3xl pointer-events-none group-hover:bg-[#00ffd2]/14 transition-all duration-700" />
               <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-[#00ffd2]/[0.015] pointer-events-none" />
 
-              {/* Card Top Meta: Futuristic Index & Live Status */}
-              <div className="flex items-center justify-between gap-4 mb-4 relative z-10">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-black text-[#00ffd2] tracking-widest bg-[#00ffd2]/10 border border-[#00ffd2]/25 px-2.5 py-1 rounded-lg">
-                    #{String(project.id).padStart(2, "0")}
-                  </span>
-                  <span className="font-mono text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
-                    // {project.category}
-                  </span>
-                </div>
-
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-[10px] font-mono font-bold tracking-wider uppercase">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  LIVE
-                </div>
+              {/* Card Top Meta: Futuristic Index & Category */}
+              <div className="flex items-center gap-2 mb-4 relative z-10">
+                <span className="font-mono text-xs font-black text-[#00ffd2] tracking-widest bg-[#00ffd2]/10 border border-[#00ffd2]/25 px-2.5 py-1 rounded-lg">
+                  #{String(project.id).padStart(2, "0")}
+                </span>
+                <span className="font-mono text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
+                  {project.category}
+                </span>
               </div>
 
               {/* Image Showcase Frame */}

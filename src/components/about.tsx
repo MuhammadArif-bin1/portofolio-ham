@@ -22,7 +22,7 @@ export default function About() {
           <span className="text-[#00ffd2] font-extrabold drop-shadow-[0_0_10px_rgba(0,255,210,0.2)]">
             analytical & problem solving
           </span>{" "}
-          yang kuat dalam debugging maupun troubleshooting hardware/software. Berdomisili di Bojong Gede, Bogor.
+          yang kuat dalam debugging maupun troubleshooting hardware/software. Berdomisili di Ciomas Permai, Kab.Bogor
         </p>
       </div>
     </section>
