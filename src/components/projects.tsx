@@ -184,6 +184,21 @@ const projects: Project[] = [
     githubUrl: "#",
     buttonText: "Kunjungi Website",
   },
+  {
+    id: 12,
+    year: "2026",
+    title: "MuraiMarket",
+    category: "E-Commerce & Marketplace",
+    badge: "E-Commerce",
+    filterType: "web-erp",
+    description:
+      "Marketplace jual-beli burung murai batu terintegrasi dengan katalog publik berbasis filter lokasi & harga, checkout pesanan, upload bukti bayar bank/e-wallet, cetak struk, dan panel verifikasi admin.",
+    tech: ["Next.js", "TypeScript", "React", "Tailwind CSS", "Lucide Icons"],
+    image: "/Background/murai-market.png",
+    demoUrl: "https://burung-murai-9727.vercel.app/",
+    githubUrl: "#",
+    buttonText: "Kunjungi Website",
+  },
 ];
 
 type FilterCategory = "all" | "ai-iot" | "web-erp" | "fintech";
