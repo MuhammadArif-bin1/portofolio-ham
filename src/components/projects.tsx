@@ -169,6 +169,21 @@ const projects: Project[] = [
     githubUrl: "#",
     buttonText: "Kunjungi Website",
   },
+  {
+    id: 11,
+    year: "2026",
+    title: "Web Undangan Pernikahan Digital",
+    category: "Interactive Web Experience",
+    badge: "Interactive Web",
+    filterType: "web-erp",
+    description:
+      "Website undangan pernikahan digital interaktif dan responsif dengan fitur audio player musik latar otomatis, reservasi RSVP online, countdown timer hari bahagia, petunjuk dress code, dan galeri momen spesial.",
+    tech: ["Next.js", "TypeScript", "React", "Tailwind CSS", "Lucide Icons", "Audio API"],
+    image: "/Background/undangan.png",
+    demoUrl: "https://undangan-pernikahan-delta-lime.vercel.app/",
+    githubUrl: "#",
+    buttonText: "Kunjungi Website",
+  },
 ];
 
 type FilterCategory = "all" | "ai-iot" | "web-erp" | "fintech";
