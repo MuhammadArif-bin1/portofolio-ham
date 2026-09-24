@@ -82,17 +82,17 @@ const projects: Project[] = [
   {
     id: 5,
     year: "2026",
-    title: "Sistem Payroll & Presensi",
-    category: "Enterprise ERP",
-    badge: "ERP System",
-    filterType: "web-erp",
+    title: "Smartbox Assistant : Asisten Ruang Pintar dengan Fitur AI",
+    category: "Smart Home AI / IoT",
+    badge: "AI & IoT",
+    filterType: "ai-iot",
     description:
-      "Sistem portal HR & payroll enterprise terintegrasi. Mengotomatisasi kalkulasi gaji bersih, potongan pajak, pencatatan absensi karyawan, serta penerbitan slip gaji digital otomatis.",
-    tech: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS", "Prisma ORM"],
-    image: "/Background/Penggajian.png",
-    demoUrl: "https://sistem-penggajian-omega.vercel.app",
-    githubUrl: "#",
-    buttonText: "Kunjungi Website",
+      "Asisten ruang pintar berbasis IoT dan AI yang dirancang untuk memantau, mengontrol, dan menghibur pengguna di dalam ruangan. Dilengkapi fitur penjadwalan stop kontak, monitoring suhu & gas dengan alarm darurat, voice command via wake word, speaker Bluetooth, interaksi AI (STT/TTS), LED pulse musik, dan greeting voice interaktif.",
+    tech: ["Next.js", "ESP32-S3", "MQTT", "Gemini API", "Edge Impulse", "TensorFlow Lite", "Tailwind CSS"],
+    image: "/Background/smartbox.png",
+    demoUrl: "/smartbox",
+    githubUrl: "https://github.com/alfarezaung762-bot",
+    buttonText: "Detail Proyek",
   },
   {
     id: 6,
@@ -334,8 +334,8 @@ export default function Projects() {
                 {/* Primary Demo Button */}
                 <Link
                   href={project.demoUrl || "#"}
-                  target={project.demoUrl && project.demoUrl !== "#" ? "_blank" : undefined}
-                  rel="noopener noreferrer"
+                  target={project.demoUrl && project.demoUrl.startsWith("http") ? "_blank" : undefined}
+                  rel={project.demoUrl && project.demoUrl.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#00ffd2] to-[#00b894] hover:from-[#38ef7d] hover:to-[#00ffd2] text-slate-950 font-black font-space-grotesk text-xs sm:text-sm uppercase tracking-wider py-3 px-4 rounded-xl shadow-lg shadow-[#00ffd2]/20 hover:shadow-[#00ffd2]/40 hover:scale-[1.02] active:scale-[0.98] transition-all group/btn text-center"
                 >
                   <span>{project.buttonText || "Kunjungi Website"}</span>
