@@ -29,8 +29,8 @@ const projects: Project[] = [
     description:
       "Aplikasi berbasis AI untuk Image Segmentation instan. Memisahkan objek utama dari latar belakang secara presisi dan otomatis dengan pemrosesan neural network berkecepatan tinggi.",
     tech: ["TypeScript", "Next.js", "React", "Tailwind CSS", "AI API"],
-    image: "/Background/remove.png",
-    demoUrl: "https://hapus-background-foto.vercel.app/",
+    image: "Background/Remove Background.png",
+    demoUrl: "https://hapus-background-foto.vercel.app",
     githubUrl: "https://github.com/MuhammadArif-bin1/remove-background",
     buttonText: "Kunjungi Website",
   },
