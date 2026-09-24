@@ -30,7 +30,7 @@ const projects: Project[] = [
       "Aplikasi berbasis AI untuk Image Segmentation instan. Memisahkan objek utama dari latar belakang secara presisi dan otomatis dengan pemrosesan neural network berkecepatan tinggi.",
     tech: ["TypeScript", "Next.js", "React", "Tailwind CSS", "AI API"],
     image: "/Background/remove.png",
-    demoUrl: "https://remove-background-indol.vercel.app",
+    demoUrl: "hapus-background-foto.vercel.app",
     githubUrl: "https://github.com/MuhammadArif-bin1/remove-background",
     buttonText: "Kunjungi Website",
   },
@@ -243,15 +243,15 @@ export default function Projects() {
               key={tab.id}
               onClick={() => setActiveFilter(tab.id)}
               className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold font-space-grotesk uppercase tracking-wider transition-all duration-300 cursor-pointer flex items-center gap-2 ${activeFilter === tab.id
-                  ? "bg-gradient-to-r from-[#00ffd2] to-[#00b894] text-slate-950 shadow-lg shadow-[#00ffd2]/25 scale-105"
-                  : "bg-slate-900/70 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800 hover:border-slate-700"
+                ? "bg-gradient-to-r from-[#00ffd2] to-[#00b894] text-slate-950 shadow-lg shadow-[#00ffd2]/25 scale-105"
+                : "bg-slate-900/70 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800 hover:border-slate-700"
                 }`}
             >
               <span>{tab.label}</span>
               <span
                 className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${activeFilter === tab.id
-                    ? "bg-slate-950/20 text-slate-950 font-black"
-                    : "bg-slate-800 text-slate-400"
+                  ? "bg-slate-950/20 text-slate-950 font-black"
+                  : "bg-slate-800 text-slate-400"
                   }`}
               >
                 {tab.count}
