@@ -35,21 +35,6 @@ const projects: Project[] = [
     buttonText: "Kunjungi Website",
   },
   {
-    id: 2,
-    year: "2026",
-    title: "SmartBox Assistant Web",
-    category: "IoT & Smart Device",
-    badge: "IoT • MQTT",
-    filterType: "ai-iot",
-    description:
-      "Asisten cerdas terintegrasi perangkat IoT (ESP32-S3) yang menggabungkan voice command, monitoring sensor telemetri real-time, dan konektivitas nirkabel MQTT untuk otomasi pintar.",
-    tech: ["Next.js", "ESP32-S3 Devkit", "Tailwind CSS", "TypeScript", "IoT", "MQTT"],
-    image: "/Background/foto smartbox.png",
-    demoUrl: "https://smartbox-asisten.vercel.app",
-    githubUrl: "https://github.com/MuhammadArif-bin1/smartbox-asisten",
-    buttonText: "Kunjungi Website",
-  },
-  {
     id: 3,
     year: "2025",
     title: "Sistem Manajemen Laundry",
