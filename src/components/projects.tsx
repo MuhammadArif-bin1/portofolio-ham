@@ -35,7 +35,7 @@ const projects: Project[] = [
     buttonText: "Kunjungi Website",
   },
   {
-    id: 3,
+    id: 2,
     year: "2025",
     title: "Sistem Manajemen Laundry",
     category: "Real-time Operations",
@@ -50,7 +50,7 @@ const projects: Project[] = [
     buttonText: "Kunjungi Website",
   },
   {
-    id: 4,
+    id: 3,
     year: "2026",
     title: "Skincare Ingredient Analyzer",
     category: "AI & HealthTech",
@@ -65,7 +65,7 @@ const projects: Project[] = [
     buttonText: "Kunjungi Website",
   },
   {
-    id: 5,
+    id: 4,
     year: "2026",
     title: "Smartbox Assistant : Asisten Ruang Pintar dengan Fitur AI",
     category: "Smart Home AI / IoT",
@@ -74,13 +74,13 @@ const projects: Project[] = [
     description:
       "Asisten ruang pintar berbasis IoT dan AI yang dirancang untuk memantau, mengontrol, dan menghibur pengguna di dalam ruangan. Dilengkapi fitur penjadwalan stop kontak, monitoring suhu & gas dengan alarm darurat, voice command via wake word, speaker Bluetooth, interaksi AI (STT/TTS), LED pulse musik, dan greeting voice interaktif.",
     tech: ["Next.js", "ESP32-S3", "MQTT", "Gemini API", "Edge Impulse", "TensorFlow Lite", "Tailwind CSS"],
-    image: "/Background/smartbox.png",
+    image: "/Background/foto smartbox.png",
     demoUrl: "/smartbox",
     githubUrl: "https://github.com/alfarezaung762-bot",
     buttonText: "Detail Proyek",
   },
   {
-    id: 6,
+    id: 5,
     year: "2026",
     title: "E-Ticketing Penerbangan",
     category: "Booking Platform",
@@ -95,7 +95,7 @@ const projects: Project[] = [
     buttonText: "Kunjungi Website",
   },
   {
-    id: 7,
+    id: 6,
     year: "2026",
     title: "Landing Page BPR Hasamitra",
     category: "Fintech & Corporate",
@@ -110,7 +110,7 @@ const projects: Project[] = [
     buttonText: "Kunjungi Website",
   },
   {
-    id: 8,
+    id: 7,
     year: "2026",
     title: "Portal Pengadaan ATK",
     category: "Internal Office System",
@@ -125,7 +125,7 @@ const projects: Project[] = [
     buttonText: "Kunjungi Website",
   },
   {
-    id: 9,
+    id: 8,
     year: "2026",
     title: "Kalkulator Simulasi Finansial",
     category: "Fintech Simulator",
@@ -140,7 +140,7 @@ const projects: Project[] = [
     buttonText: "Kunjungi Website",
   },
   {
-    id: 10,
+    id: 9,
     year: "2026",
     title: "Ruang University",
     category: "E-Learning Platform",
@@ -155,7 +155,7 @@ const projects: Project[] = [
     buttonText: "Kunjungi Website",
   },
   {
-    id: 11,
+    id: 10,
     year: "2026",
     title: "Web Undangan Pernikahan Digital",
     category: "Interactive Web Experience",
@@ -170,7 +170,7 @@ const projects: Project[] = [
     buttonText: "Kunjungi Website",
   },
   {
-    id: 12,
+    id: 11,
     year: "2026",
     title: "MuraiMarket",
     category: "E-Commerce & Marketplace",
@@ -263,7 +263,7 @@ export default function Projects() {
               {/* Card Top Meta: Futuristic Index & Category */}
               <div className="flex items-center gap-2 mb-4 relative z-10">
                 <span className="font-mono text-xs font-black text-[#00ffd2] tracking-widest bg-[#00ffd2]/10 border border-[#00ffd2]/25 px-2.5 py-1 rounded-lg">
-                  #{String(project.id).padStart(2, "0")}
+                  {String(idx + 1).padStart(2, "0")}
                 </span>
                 <span className="font-mono text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
                   {project.category}
