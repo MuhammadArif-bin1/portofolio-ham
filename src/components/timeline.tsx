@@ -277,6 +277,7 @@ function PolaroidCard({
   activeIndex,
   total,
   isMobile,
+  isTablet,
   onClick,
   onPhotoClick,
 }: {
@@ -285,6 +286,7 @@ function PolaroidCard({
   activeIndex: number;
   total: number;
   isMobile: boolean;
+  isTablet: boolean;
   onClick: () => void;
   onPhotoClick: (photos: { src: string; alt: string; badge?: string }[], startIndex: number) => void;
 }) {
@@ -292,8 +294,8 @@ function PolaroidCard({
   const offset = index - activeIndex;
 
   // Responsive card dimensions
-  const cardWidth = isMobile ? 250 : 280;
-  const photoSize = isMobile ? 228 : 256;
+  const cardWidth = isMobile ? 250 : isTablet ? 260 : 280;
+  const photoSize = isMobile ? 228 : isTablet ? 236 : 256;
   const marginLeft = -(cardWidth / 2);
 
   // Calculate 3D position based on offset from active
@@ -301,6 +303,8 @@ function PolaroidCard({
     if (offset === 0) {
       return isMobile
         ? "translateX(0px) translateZ(40px) rotateY(0deg) scale(1)"
+        : isTablet
+        ? "translateX(0px) translateZ(60px) rotateY(0deg) scale(1)"
         : "translateX(0px) translateZ(80px) rotateY(0deg) scale(1)";
     }
 
@@ -314,6 +318,16 @@ function PolaroidCard({
       }
       // Far cards hidden on mobile
       return `translateX(${direction * 120}px) translateZ(-160px) scale(0.5)`;
+    }
+
+    if (isTablet) {
+      if (absOffset === 1) {
+        return `translateX(${direction * 190}px) translateZ(-40px) rotateY(${-direction * 18}deg) scale(0.82)`;
+      }
+      if (absOffset === 2) {
+        return `translateX(${direction * 330}px) translateZ(-120px) rotateY(${-direction * 30}deg) scale(0.62)`;
+      }
+      return `translateX(${direction * 450}px) translateZ(-200px) rotateY(${-direction * 40}deg) scale(0.45)`;
     }
 
     // Desktop
@@ -334,6 +348,11 @@ function PolaroidCard({
     if (isMobile) {
       if (absOffset === 1) return 0.35;
       return 0; // Hide 2+ cards on mobile to avoid overflow
+    }
+    if (isTablet) {
+      if (absOffset === 1) return 0.8;
+      if (absOffset === 2) return 0.3;
+      return 0;
     }
     if (absOffset === 1) return 0.85;
     if (absOffset === 2) return 0.45;
@@ -537,6 +556,7 @@ export default function Timeline() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const touchStartX = useRef(0);
   const [lightbox, setLightbox] = useState<{
@@ -544,10 +564,12 @@ export default function Timeline() {
     startIndex: number;
   } | null>(null);
 
-  // Detect mobile viewport for responsive 3D card layout
+  // Detect mobile & tablet viewport for responsive 3D card layout
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
+      const width = window.innerWidth;
+      setIsMobile(width < 640);
+      setIsTablet(width >= 640 && width < 1024);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -662,6 +684,7 @@ export default function Timeline() {
                   activeIndex={activeIndex}
                   total={milestones.length}
                   isMobile={isMobile}
+                  isTablet={isTablet}
                   onClick={() => setActiveIndex(i)}
                   onPhotoClick={openLightbox}
                 />
